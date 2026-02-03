@@ -11,7 +11,7 @@ const HomeImportance = () => {
     const t = translations.home[language].importance;
 
     return (
-        <section className="our-mission-area pb-lg-0 pt-lg-0 ptb-100 mb-5">
+        <section className="our-mission-area  pb-lg-0 pt-lg-0 ptb-100 mb-5">
             <div className="container p-0">
                 <div className="row m-0 flex-sm-row-reverse justify-content-between align-items-center">
                     <div className="col-lg-6 col-md-12 p-0">
@@ -20,7 +20,7 @@ const HomeImportance = () => {
                             subTitle={t.sub}
                             desc={t.desc}
                             cards={t.cards}
-                            className="our-mission-content"
+                            className="our-mission-content pt-0"
                         >
                             <Link href="/contact" className="btn btn-primary mt-4">
                                 {language === 'ar' ? 'احجز استشارة' : 'Book Consultation'}
