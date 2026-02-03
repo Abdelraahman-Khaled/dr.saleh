@@ -1,0 +1,119 @@
+.academic-research-area {
+    background-color: #ffffff;
+}
+
+.academic-card, .research-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(3, 11, 88, 0.05);
+    box-shadow: 0 10px 30px rgba(3, 11, 88, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.academic-card:hover, .research-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 60px;
+}
+
+[dir="rtl"] .card-header {
+    padding-left: 0;
+    padding-right: 60px;
+}
+
+.card-header i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 2.5rem;
+    color: #1d9bc2;
+}
+
+[dir="rtl"] .card-header i {
+    left: auto;
+    right: 0;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #030b58;
+    margin-bottom: 5px;
+}
+
+.card-header span {
+    color: #1d9bc2;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.academic-list, .research-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.academic-list li, .research-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+[dir="rtl"] .academic-list li, [dir="rtl"] .research-list li {
+    padding-left: 0;
+    padding-right: 25px;
+}
+
+.academic-list li i, .research-list li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: #1d9bc2;
+    font-size: 0.8rem;
+}
+
+[dir="rtl"] .academic-list li i, [dir="rtl"] .research-list li i {
+    left: auto;
+    right: 0;
+}
+
+.research-footer {
+    border-top: 1px solid rgba(3, 11, 88, 0.05);
+    padding-top: 20px;
+    color: #475569;
+    font-weight: 600;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 767px) {
+    .academic-list {
+        grid-template-columns: 1fr;
+    }
+}
+.research-desc {
+    margin-bottom: 25px;
+    color: #64748b;
+    border-left: 3px solid #1d9bc2;
+    padding-left: 15px;
+}
+
+[dir="rtl"] .research-desc {
+    border-left: none;
+    border-right: 3px solid #1d9bc2;
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.research-list li i {
+    font-size: 1rem;
+}

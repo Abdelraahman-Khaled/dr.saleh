@@ -1,0 +1,784 @@
+.patient-journey-page {
+    --primary-color: #030b58;
+    --secondary-color: #1d9bc2;
+    --text-dark: #1a202c;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --gradient-primary: linear-gradient(135deg, #030b58 0%, #1d9bc2 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(3, 11, 88, 0.05) 0%, rgba(29, 155, 194, 0.05) 100%);
+}
+
+.patient-journey-page.rtl {
+    direction: rtl;
+}
+
+/* ==================== INTRO SECTION ==================== */
+.intro-card-modern {
+    position: relative;
+    padding: 3.5rem;
+    background: linear-gradient(white, white) padding-box,
+                var(--gradient-primary) border-box;
+    border: 3px solid transparent;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(3, 11, 88, 0.08);
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ==================== SECTION TITLES ==================== */
+.section-title-modern {
+    margin-bottom: 4rem;
+}
+
+.subtitle-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--gradient-soft);
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ==================== TIMELINE LAYOUT ==================== */
+.journey-timeline-section {
+    padding: 100px 0;
+    background: var(--bg-light);
+    position: relative;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Timeline Center Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, 
+        transparent 0%, 
+        var(--secondary-color) 10%, 
+        var(--secondary-color) 90%, 
+        transparent 100%);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 80px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Left Side Items */
+.timeline-left .timeline-content {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: calc(50% + 50px);
+}
+
+/* Right Side Items */
+.timeline-right .timeline-content {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    padding-left: calc(50% + 50px);
+}
+
+/* Timeline Icon */
+.timeline-icon-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.timeline-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 1),
+                0 0 0 12px rgba(29, 155, 194, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 1),
+                0 0 0 16px rgba(29, 155, 194, 0.3);
+}
+
+.step-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+}
+
+/* Timeline Card */
+.timeline-card {
+    flex: 1;
+    max-width: 500px;
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(3, 11, 88, 0.08);
+    border: 1px solid rgba(3, 11, 88, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(3, 11, 88, 0.12);
+}
+
+.timeline-card:hover::before {
+    opacity: 1;
+}
+
+.card-header-modern {
+    margin-bottom: 1.25rem;
+}
+
+.stage-label {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    background: var(--gradient-soft);
+    color: var(--secondary-color);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.step-description {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 1rem 0 1.5rem;
+    font-size: 1rem;
+}
+
+.step-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.step-points-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.step-points-list i {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.step-note-modern {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(29, 155, 194, 0.05), rgba(29, 155, 194, 0.1));
+    border-left: 3px solid var(--secondary-color);
+    border-radius: 12px;
+    margin-top: 1.5rem;
+}
+
+.step-note-modern i {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+}
+
+.step-note-modern p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ==================== WHY CHOOSE SECTION ==================== */
+.why-choose-modern {
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #030b58 0%, #051a7a 50%, #030b58 100%);
+    overflow: hidden;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(29, 155, 194, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(29, 155, 194, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.section-heading-white {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+}
+
+.why-content-centered {
+    margin-bottom: 4rem;
+}
+
+.why-items-grid-centered {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.why-item-card {
+    position: relative;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.why-item-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.why-item-card:hover {
+    background: rgba(29, 155, 194, 0.1);
+    border-color: rgba(29, 155, 194, 0.3);
+    transform: translateY(-5px);
+}
+
+.why-item-card:hover::after {
+    transform: scaleX(1);
+}
+
+.item-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(29, 155, 194, 0.3);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.item-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.item-content i {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.item-content span {
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Doctor Message Card */
+.doctor-message-card {
+    position: relative;
+    padding: 3.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.quote-decoration {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(29, 155, 194, 0.4);
+}
+
+.quote-decoration i {
+    font-size: 2rem;
+    color: white;
+}
+
+.message-quote {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+    font-style: italic;
+}
+
+.message-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-avatar i {
+    font-size: 1.75rem;
+    color: var(--secondary-color);
+}
+
+.author-details {
+    text-align: left;
+}
+
+.author-details h5 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+}
+
+.author-details p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ==================== PREMIUM BOOKING CTA ==================== */
+.booking-cta-premium {
+    padding: 100px 0;
+    /* Rich Deep Gradient Background - Dark Blue/Navy theme */
+    background: radial-gradient(circle at top right, #051a7a 0%, #030b58 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+/* Background overlay effect */
+.booking-cta-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.cta-premium-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cta-premium-content {
+    background: rgba(255, 255, 255, 0.05); /* Glassmorphism */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    padding: 4rem 3rem;
+}
+
+.cta-label-small {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.cta-premium-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-premium-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+}
+
+.cta-action-area {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+}
+
+.methods-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+.methods-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.method-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+    min-width: 220px;
+    color: var(--primary-color);
+}
+
+.method-btn .btn-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.method-btn .btn-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.patient-journey-page.rtl .method-btn .btn-text {
+    text-align: right;
+}
+
+.method-btn .btn-text span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #888;
+}
+
+.method-btn .btn-text strong {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* Call Button Specifics */
+.call-method .btn-icon {
+    color: var(--primary-color);
+    background: rgba(3, 11, 88, 0.1);
+}
+
+.call-method:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.call-method:hover .btn-icon {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* WhatsApp Button Specifics */
+.whatsapp-method .btn-icon {
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.1);
+}
+
+.whatsapp-method:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-method:hover .btn-icon {
+    background: #25D366;
+    color: white;
+}
+
+.guidance-note {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* ==================== DISCLAIMER SECTION ==================== */
+.disclaimer-modern {
+    padding: 60px 0;
+    background: white;
+}
+
+.disclaimer-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.75rem 2rem;
+    background: var(--bg-light);
+    border-radius: 20px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.disclaimer-card i {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.disclaimer-content h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem;
+}
+
+.disclaimer-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==================== RTL SUPPORT ==================== */
+.patient-journey-page.rtl .step-note-modern {
+    border-left: none;
+    border-right: 3px solid var(--secondary-color);
+}
+
+.patient-journey-page.rtl .disclaimer-card {
+    border-left: none;
+    border-right: 4px solid var(--secondary-color);
+}
+
+.patient-journey-page.rtl .author-details {
+    text-align: right;
+}
+
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 991px) {
+    .timeline-container::before {
+        left: 30px;
+    }
+    
+    .timeline-left .timeline-content,
+    .timeline-right .timeline-content {
+        flex-direction: row;
+        padding-left: 80px;
+        padding-right: 0;
+    }
+    
+    .timeline-icon-wrapper {
+        left: 30px;
+        transform: translateX(0);
+    }
+    
+    .timeline-card {
+        max-width: 100%;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .section-heading-white {
+        font-size: 2rem;
+    }
+    
+    .cta-heading {
+        font-size: 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.25rem;
+    }
+    
+    .intro-card-modern {
+        padding: 2rem;
+    }
+    
+    .intro-text {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .journey-timeline-section {
+        padding: 60px 0;
+    }
+    
+    .why-choose-modern {
+        padding: 80px 0;
+    }
+    
+    .booking-cta-modern {
+        padding: 60px 0;
+    }
+    
+    .timeline-icon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .step-number {
+        font-size: 1.4rem;
+    }
+    
+    .timeline-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .contact-btn-modern {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .quote-card-modern {
+        padding: 2rem;
+    }
+    
+    .booking-box {
+        padding: 1.75rem;
+    }
+}

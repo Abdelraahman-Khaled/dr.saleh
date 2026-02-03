@@ -1,0 +1,109 @@
+
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.card:hover .title {
+  color: #1d9bc2; /* Use primary color or var(--bs-primary) if available, but hex is safer for standalone */
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1d9bc2;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+  gap: 8px;
+}
+
+.readMore:hover {
+  gap: 12px;
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+    background: #e7f1ff;
+    transform: rotateY(180deg);
+}
